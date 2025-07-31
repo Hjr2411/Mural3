@@ -4,12 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Portal Colaborativo</title>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Tela de Login -->
   <div id="loginScreen" class="login-container">
     <div class="login-card">
       <h1>Portal Colaborativo</h1>
@@ -26,7 +23,6 @@
     </div>
   </div>
 
-  <!-- Painel Admin -->
   <div id="adminPanel" class="admin-panel container">
     <div class="header">
       <h1>Painel Administrativo</h1>
@@ -41,7 +37,6 @@
     <div id="sectionsList"></div>
   </div>
 
-  <!-- Visualização do Leitor -->
   <div id="readerView" class="reader-view container">
     <div class="header">
       <h1>Mural de Informações</h1>
@@ -51,7 +46,6 @@
     <div id="muralContent"></div>
   </div>
 
-  <!-- Modal para Criar/Editar Seção -->
   <div id="sectionModal" class="modal">
     <div class="modal-content">
       <span class="close-modal">&times;</span>
@@ -72,7 +66,6 @@
         </select>
       </div>
 
-      <!-- Texto -->
       <div id="contentTypeText" class="content-type">
         <div class="form-row">
           <label for="textContent">Conteúdo</label>
@@ -80,7 +73,6 @@
         </div>
       </div>
 
-      <!-- Tabela -->
       <div id="contentTypeTable" class="content-type" style="display:none;">
         <div class="form-row">
           <label>Adicionar Linha na Tabela</label>
@@ -104,7 +96,6 @@
         </table>
       </div>
 
-      <!-- Lista -->
       <div id="contentTypeList" class="content-type" style="display:none;">
         <div class="form-row">
           <label>Adicionar Item na Lista</label>
@@ -118,7 +109,6 @@
         <div id="listPreview"></div>
       </div>
 
-      <!-- Meta -->
       <div id="contentTypeGoal" class="content-type" style="display:none;">
         <div class="form-row">
           <label for="goalTitle">Título da Meta</label>
@@ -142,8 +132,7 @@
           </div>
         </div>
       </div>
-
-      <!-- Enquete -->
+      
       <div id="contentTypePoll" class="content-type" style="display:none;">
         <div class="form-row">
           <label for="pollQuestion">Pergunta da Enquete</label>
@@ -165,32 +154,32 @@
         </div>
       </div>
 
-      <!-- Sugestão -->
       <div id="contentTypeSuggestion" class="content-type" style="display:none;">
-        <p>Os colaboradores poderão enviar sugestões anônimas. Apenas você poderá visualizá-las no painel.</p>
         <div class="form-row">
           <label for="suggestionTitle">Título da Caixa de Sugestões</label>
-          <input type="text" id="suggestionTitle" placeholder="Ex: Envie sua sugestão" />
+          <input type="text" id="suggestionTitle" placeholder="Ex: Envie sua sugestão para o time" />
         </div>
+        <p>Os colaboradores poderão enviar sugestões. Você poderá visualizá-las no painel clicando em "Editar" nesta seção.</p>
       </div>
+
 
       <button id="saveSectionBtn" class="btn btn-primary" style="margin-top:20px;">Salvar Seção</button>
     </div>
   </div>
 
-  <!-- Modal de Reordenação -->
   <div id="reorderModal" class="modal">
     <div class="modal-content">
       <span class="close-modal">&times;</span>
       <h2 class="modal-title">Reordenar Seções</h2>
       <p>Arraste as seções para definir a ordem de exibição no mural.</p>
       <ul id="reorderList" class="reorder-list">
-        <!-- Será preenchido dinamicamente -->
-      </ul>
+        </ul>
       <button id="saveOrderBtn" class="btn btn-primary" style="margin-top:20px;">Salvar Ordem</button>
     </div>
   </div>
 
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
