@@ -1,1 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portal Colaborativo</title>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Tela de Login -->
+  <div id="loginScreen" class="login-container">
+    <div class="login-card">
+      <h1>Portal Colaborativo</h1>
+      <div class="form-group">
+        <label for="username">Nome</label>
+        <input type="text" id="username" placeholder="Digite seu nome" />
+      </div>
+      <div class="form-group">
+        <label for="password">Senha</label>
+        <input type="password" id="password" placeholder="Digite sua senha" />
+      </div>
+      <button id="loginBtn" class="btn">Entrar</button>
+      <div id="loginError" class="error"></div>
+    </div>
+  </div>
 
+  <!-- Painel Admin -->
+  <div id="adminPanel" class="admin-panel container">
+    <div class="header">
+      <h1>Painel Administrativo</h1>
+      <button id="logoutBtn" class="btn logout-btn">Sair</button>
+    </div>
+
+    <div class="admin-controls">
+      <button id="addSectionBtn" class="btn btn-primary">Criar Nova Seção</button>
+      <button id="reorderSectionsBtn" class="btn btn-warning">Reordenar Seções</button>
+    </div>
+
+    <div id="sectionsList"></div>
+  </div>
+
+  <!-- Visualização do Leitor -->
+  <div id="readerView" class="reader-view container">
+    <div class="header">
+      <h1>Mural de Informações</h1>
+      <button id="logoutBtnReader" class="btn logout-btn">Sair</button>
+    </div>
+
+    <div id="muralContent"></div>
+  </div>
+
+  <!-- Modal para Criar/Editar Seção -->
+  <div id="sectionModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2 class="modal-title">Criar Nova Seção</h2>
+      <div class="form-row">
+        <label for="sectionTitle">Título da Seção</label>
+        <input type="text" id="sectionTitle" placeholder="Ex: Avisos Gerais" />
+      </div>
+      <div class="form-row">
+        <label for="sectionType">Tipo de Conteúdo</label>
+        <select id="sectionType">
+          <option value="text">Texto Simples</option>
+          <option value="table">Tabela (Plantonistas)</option>
+          <option value="list">Lista (Folgas)</option>
+          <option value="goal">Meta de Tarefas</option>
+          <option value="poll">Enquete (estilo WhatsApp)</option>
+          <option value="suggestion">Caixa de Sugestões</option>
+        </select>
+      </div>
+
+      <!-- Texto -->
+      <div id="contentTypeText" class="content-type">
+        <div class="form-row">
+          <label for="textContent">Conteúdo</label>
+          <textarea id="textContent" placeholder="Digite o texto da seção..."></textarea>
+        </div>
+      </div>
+
+      <!-- Tabela -->
+      <div id="contentTypeTable" class="content-type" style="display:none;">
+        <div class="form-row">
+          <label>Adicionar Linha na Tabela</label>
+          <div style="display:flex; gap:5px;">
+            <input type="text" id="tableNome" placeholder="Nome" style="flex:2" />
+            <input type="text" id="tableProjeto" placeholder="Projeto" style="flex:2" />
+            <input type="text" id="tableData" placeholder="Data" style="flex:1" />
+            <button id="addTableRow" class="btn btn-success" style="flex:1">+</button>
+          </div>
+        </div>
+        <table id="tablePreview">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Projeto</th>
+              <th>Data</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="tableRows"></tbody>
+        </table>
+      </div>
+
+      <!-- Lista -->
+      <div id="contentTypeList" class="content-type" style="display:none;">
+        <div class="form-row">
+          <label>Adicionar Item na Lista</label>
+          <div style="display:flex; gap:5px;">
+            <input type="text" id="listNome" placeholder="Nome" style="flex:2" />
+            <input type="text" id="listProjeto" placeholder="Projeto" style="flex:2" />
+            <input type="text" id="listDia" placeholder="Dia" style="flex:1" />
+            <button id="addListItem" class="btn btn-success" style="flex:1">+</button>
+          </div>
+        </div>
+        <div id="listPreview"></div>
+      </div>
+
+      <!-- Meta -->
+      <div id="contentTypeGoal" class="content-type" style="display:none;">
+        <div class="form-row">
+          <label for="goalTitle">Título da Meta</label>
+          <input type="text" id="goalTitle" placeholder="Ex: Concluir Projeto X" />
+        </div>
+        <div class="form-row">
+          <label for="goalCurrent">Progresso Atual</label>
+          <input type="number" id="goalCurrent" min="0" placeholder="Tarefas concluídas" />
+        </div>
+        <div class="form-row">
+          <label for="goalTotal">Total de Tarefas</label>
+          <input type="number" id="goalTotal" min="1" placeholder="Total de tarefas" />
+        </div>
+        <div class="content-preview">
+          <strong>Pré-visualização:</strong>
+          <div id="goalPreview" class="progress-container">
+            <div class="progress-bar-outer">
+              <div class="progress-bar-inner" style="width: 0%"></div>
+            </div>
+            <div class="progress-text">0%</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Enquete -->
+      <div id="contentTypePoll" class="content-type" style="display:none;">
+        <div class="form-row">
+          <label for="pollQuestion">Pergunta da Enquete</label>
+          <input type="text" id="pollQuestion" placeholder="Qual será o próximo evento?" />
+        </div>
+        <div class="form-row">
+          <label>Opções da Enquete</label>
+          <div id="pollOptionsContainer">
+            <div class="poll-option-input" style="display:flex; gap:5px; margin-bottom:5px;">
+              <input type="text" placeholder="Opção 1" class="poll-option-field" style="flex:1" />
+              <button type="button" class="btn btn-danger remove-option" style="padding:5px 10px;">x</button>
+            </div>
+            <div class="poll-option-input" style="display:flex; gap:5px;">
+              <input type="text" placeholder="Opção 2" class="poll-option-field" style="flex:1" />
+              <button type="button" class="btn btn-danger remove-option" style="padding:5px 10px;">x</button>
+            </div>
+          </div>
+          <button id="addPollOption" class="btn btn-success" style="margin:10px 0;">+ Adicionar Opção</button>
+        </div>
+      </div>
+
+      <!-- Sugestão -->
+      <div id="contentTypeSuggestion" class="content-type" style="display:none;">
+        <p>Os colaboradores poderão enviar sugestões anônimas. Apenas você poderá visualizá-las no painel.</p>
+        <div class="form-row">
+          <label for="suggestionTitle">Título da Caixa de Sugestões</label>
+          <input type="text" id="suggestionTitle" placeholder="Ex: Envie sua sugestão" />
+        </div>
+      </div>
+
+      <button id="saveSectionBtn" class="btn btn-primary" style="margin-top:20px;">Salvar Seção</button>
+    </div>
+  </div>
+
+  <!-- Modal de Reordenação -->
+  <div id="reorderModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2 class="modal-title">Reordenar Seções</h2>
+      <p>Arraste as seções para definir a ordem de exibição no mural.</p>
+      <ul id="reorderList" class="reorder-list">
+        <!-- Será preenchido dinamicamente -->
+      </ul>
+      <button id="saveOrderBtn" class="btn btn-primary" style="margin-top:20px;">Salvar Ordem</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
