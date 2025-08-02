@@ -34,12 +34,15 @@ const readerPanel = document.getElementById('reader-panel');
 
 // Initialize app
 document.addEventListener('DOMContentLoaded', function() {
-    initializeApp();
+    //initializeApp();
+    async function startApp() ;
     setupEventListeners();
 });
 
 // Initialize application
-async function initializeApp() {
+//async function initializeApp()
+    async function startApp() //{
+{
     try {
         // Check if database is empty and needs initialization
         await checkAndInitializeDatabase();
