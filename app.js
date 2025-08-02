@@ -15,7 +15,8 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+//const app = initializeApp(firebaseConfig);
+const app = startApp(firebaseConfig);
 const database = getDatabase(app);
 
 // Global variables
