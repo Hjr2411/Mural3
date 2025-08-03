@@ -1,6 +1,8 @@
-// Firebase Configuration import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js'; import { getDatabase, ref, set, get, push, remove, update, onValue, off } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js';
+// Firebase Configuration 
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js'; import { getDatabase, ref, set, get, push, remove, update, onValue, off } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js';
 
-// Firebase config const firebaseConfig = { apiKey: "AIzaSyCVYvTFM3yoMta2T5AX_3FewmhtkvE9SOA", authDomain: "muralhsys.firebaseapp.com", databaseURL: "https://muralhsys-default-rtdb.firebaseio.com", projectId: "muralhsys", storageBucket: "muralhsys.appspot.com", messagingSenderId: "652168528324", appId: "1:652168528324:web:741aa4779c1f7a149c6491", measurementId: "G-FMKBG2M0PE" };
+// Firebase config 
+const firebaseConfig = { apiKey: "AIzaSyCVYvTFM3yoMta2T5AX_3FewmhtkvE9SOA", authDomain: "muralhsys.firebaseapp.com", databaseURL: "https://muralhsys-default-rtdb.firebaseio.com", projectId: "muralhsys", storageBucket: "muralhsys.appspot.com", messagingSenderId: "652168528324", appId: "1:652168528324:web:741aa4779c1f7a149c6491", measurementId: "G-FMKBG2M0PE" };
 
 const app = initializeApp(firebaseConfig); const database = getDatabase(app);
 
