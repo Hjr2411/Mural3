@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,198 +12,199 @@
     <div id="loading-screen" class="loading-screen">
         <div class="loading-spinner"></div>
         <p>Carregando...</p>
-    </div><!-- Login Screen -->
-<div id="login-screen" class="login-screen">
-    <div class="login-container">
-        <div class="login-header">
-            <i class="fas fa-users"></i>
-            <h1>Portal de Colaboradores</h1>
-            <p>Sistema de Informações Corporativas</p>
-        </div>
-        <form id="login-form" class="login-form">
-            <div class="form-group">
-                <label for="username">Nome de usuário</label>
-                <input type="text" id="username" name="username" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Senha</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <button type="submit" class="btn-primary">
-                <i class="fas fa-sign-in-alt"></i>
-                Entrar
-            </button>
-        </form>
-        <div id="login-error" class="error-message" style="display: none;"></div>
     </div>
-</div>
 
-<!-- Main Application -->
-<div id="main-app" class="main-app" style="display: none;">
-    <!-- Header -->
-    <header class="app-header">
-        <div class="header-content">
-            <div class="header-left">
+    <!-- Login Screen -->
+    <div id="login-screen" class="login-screen">
+        <div class="login-container">
+            <div class="login-header">
                 <i class="fas fa-users"></i>
                 <h1>Portal de Colaboradores</h1>
+                <p>Sistema de Informações Corporativas</p>
             </div>
-            <div class="header-right">
-                <span id="user-name" class="user-name"></span>
-                <button id="logout-btn" class="btn-secondary">
-                    <i class="fas fa-sign-out-alt"></i>
-                    Sair
+            <form id="login-form" class="login-form">
+                <div class="form-group">
+                    <label for="username">Nome de usuário</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn-primary">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Entrar
                 </button>
-            </div>
+            </form>
+            <div id="login-error" class="error-message" style="display: none;"></div>
         </div>
-    </header>
+    </div>
 
-    <!-- Admin Panel -->
-    <div id="admin-panel" class="admin-panel" style="display: none;">
-        <div class="admin-container">
-            <div class="admin-sidebar">
-                <h3><i class="fas fa-cog"></i> Painel Administrativo</h3>
-                <nav class="admin-nav">
-                    <button class="nav-btn active" data-section="sections">
-                        <i class="fas fa-th-large"></i>
-                        Gerenciar Seções
+    <!-- Main Application -->
+    <div id="main-app" class="main-app" style="display: none;">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <div class="header-left">
+                    <i class="fas fa-users"></i>
+                    <h1>Portal de Colaboradores</h1>
+                </div>
+                <div class="header-right">
+                    <span id="current-user-name" class="user-name"></span>
+                    <button id="logout-btn" class="btn-secondary">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Sair
                     </button>
-                    <button class="nav-btn" data-section="users">
-                        <i class="fas fa-users"></i>
-                        Gerenciar Usuários
-                    </button>
-                    <button class="nav-btn" data-section="access-logs">
-                        <i class="fas fa-chart-bar"></i>
-                        Logs de Acesso
-                    </button>
-                    <button class="nav-btn" data-section="suggestions">
-                        <i class="fas fa-lightbulb"></i>
-                        Sugestões Recebidas
-                    </button>
-                </nav>
+                </div>
             </div>
-            
-            <div class="admin-content">
-                <!-- Sections Management -->
-                <div id="sections-management" class="admin-section active">
-                    <div class="section-header">
-                        <h2>Gerenciar Seções do Mural</h2>
-                        <button id="add-section-btn" class="btn-primary">
-                            <i class="fas fa-plus"></i>
-                            Nova Seção
+        </header>
+
+        <!-- Admin Panel -->
+        <div id="admin-panel" class="admin-panel" style="display: none;">
+            <div class="admin-container">
+                <div class="admin-sidebar">
+                    <h3><i class="fas fa-cog"></i> Painel Administrativo</h3>
+                    <nav class="admin-nav">
+                        <button class="nav-btn active" data-section="sections">
+                            <i class="fas fa-th-large"></i>
+                            Gerenciar Seções
                         </button>
-                    </div>
-                    <div id="sections-list" class="sections-list"></div>
-                </div>
-
-                <!-- Users Management -->
-                <div id="users-management" class="admin-section">
-                    <div class="section-header">
-                        <h2>Gerenciar Usuários</h2>
-                        <button id="add-user-btn" class="btn-primary">
-                            <i class="fas fa-user-plus"></i>
-                            Novo Usuário
+                        <button class="nav-btn" data-section="users">
+                            <i class="fas fa-users"></i>
+                            Gerenciar Usuários
                         </button>
-                    </div>
-                    <div id="users-list" class="users-list"></div>
+                        <button class="nav-btn" data-section="access-logs">
+                            <i class="fas fa-chart-bar"></i>
+                            Logs de Acesso
+                        </button>
+                        <button class="nav-btn" data-section="suggestions">
+                            <i class="fas fa-lightbulb"></i>
+                            Sugestões Recebidas
+                        </button>
+                    </nav>
                 </div>
 
-                <!-- Access Logs Management -->
-                <div id="access-logs-management" class="admin-section">
-                    <div class="section-header">
-                        <h2>Logs de Acesso ao Portal</h2>
+                <div class="admin-content">
+                    <!-- Sections Management -->
+                    <div id="sections-management" class="admin-section active">
+                        <div class="section-header">
+                            <h2>Gerenciar Seções do Mural</h2>
+                            <button id="add-section-btn" class="btn-primary">
+                                <i class="fas fa-plus"></i>
+                                Nova Seção
+                            </button>
+                        </div>
+                        <div id="sections-list" class="sections-list"></div>
                     </div>
-                    <div id="access-logs-list" class="access-logs-list"></div>
-                </div>
 
-                <!-- Suggestions Management -->
-                <div id="suggestions-management" class="admin-section">
-                    <div class="section-header">
-                        <h2>Sugestões Recebidas</h2>
+                    <!-- Users Management -->
+                    <div id="users-management" class="admin-section">
+                        <div class="section-header">
+                            <h2>Gerenciar Usuários</h2>
+                            <button id="add-user-btn" class="btn-primary">
+                                <i class="fas fa-user-plus"></i>
+                                Novo Usuário
+                            </button>
+                        </div>
+                        <div id="users-list" class="users-list"></div>
                     </div>
-                    <div id="suggestions-list" class="suggestions-list"></div>
+
+                    <!-- Access Logs Management -->
+                    <div id="access-logs-management" class="admin-section">
+                        <div class="section-header">
+                            <h2>Logs de Acesso ao Portal</h2>
+                        </div>
+                        <div id="access-logs-list" class="access-logs-list"></div>
+                    </div>
+
+                    <!-- Suggestions Management -->
+                    <div id="suggestions-management" class="admin-section">
+                        <div class="section-header">
+                            <h2>Sugestões Recebidas</h2>
+                        </div>
+                        <div id="suggestions-list" class="suggestions-list"></div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Reader Panel (Mural) -->
-    <div id="reader-panel" class="reader-panel" style="display: none;">
-        <div class="mural-container">
-            <div class="mural-header">
-                <h2><i class="fas fa-clipboard-list"></i> Mural de Informações</h2>
+        <!-- Reader Panel (Mural) -->
+        <div id="reader-panel" class="reader-panel" style="display: none;">
+            <div class="mural-container">
+                <div class="mural-header">
+                    <h2><i class="fas fa-clipboard-list"></i> Mural de Informações</h2>
+                </div>
+                <div id="mural-content" class="mural-content"></div>
             </div>
-            <div id="mural-content" class="mural-content"></div>
         </div>
     </div>
-</div>
 
-<!-- Modal for Section Creation/Editing -->
-<div id="section-modal" class="modal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h3 id="modal-title">Nova Seção</h3>
-            <button class="modal-close">&times;</button>
+    <!-- Modal for Section Creation/Editing -->
+    <div id="section-modal" class="modal" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Nova Seção</h3>
+                <button class="modal-close" aria-label="Fechar">&times;</button>
+            </div>
+            <form id="section-form" class="modal-form">
+                <div class="form-group">
+                    <label for="section-title">Título da Seção</label>
+                    <input type="text" id="section-title" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="section-type">Tipo de Conteúdo</label>
+                    <select id="section-type" name="type" required>
+                        <option value="">Selecione o tipo</option>
+                        <option value="texto">Texto Simples</option>
+                        <option value="meta">Meta com Progresso</option>
+                        <option value="folgas">Lista de Folgas</option>
+                        <option value="plantao">Tabela de Plantão</option>
+                        <option value="enquete">Enquete</option>
+                        <option value="imagem-texto">Imagem com Texto</option>
+                        <option value="sugestoes">Sugestões</option>
+                    </select>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary modal-cancel">Cancelar</button>
+                    <button type="submit" class="btn-primary">Salvar</button>
+                </div>
+            </form>
         </div>
-        <form id="section-form" class="modal-form">
-            <div class="form-group">
-                <label for="section-title">Título da Seção</label>
-                <input type="text" id="section-title" name="title" required>
-            </div>
-            <div class="form-group">
-                <label for="section-type">Tipo de Conteúdo</label>
-                <select id="section-type" name="type" required>
-                    <option value="">Selecione o tipo</option>
-                    <option value="texto">Texto Simples</option>
-                    <option value="meta">Meta com Progresso</option>
-                    <option value="folgas">Lista de Folgas</option>
-                    <option value="plantao">Tabela de Plantão</option>
-                    <option value="enquete">Enquete</option>
-                    <option value="imagem-texto">Imagem com Texto</option>
-                    <option value="sugestoes">Sugestões</option>
-                </select>
-            </div>
-            <div class="modal-actions">
-                <button type="button" class="btn-secondary modal-cancel">Cancelar</button>
-                <button type="submit" class="btn-primary">Salvar</button>
-            </div>
-        </form>
     </div>
-</div>
 
-<!-- Modal for User Creation/Editing -->
-<div id="user-modal" class="modal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h3 id="user-modal-title">Novo Usuário</h3>
-            <button class="modal-close">&times;</button>
+    <!-- Modal for User Creation/Editing -->
+    <div id="user-modal" class="modal" role="dialog" aria-labelledby="user-modal-title" aria-hidden="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="user-modal-title">Novo Usuário</h3>
+                <button class="modal-close" aria-label="Fechar">&times;</button>
+            </div>
+            <form id="user-form" class="modal-form">
+                <div class="form-group">
+                    <label for="user-name-input">Nome de Usuário</label>
+                    <input type="text" id="user-name-input" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="user-password">Senha</label>
+                    <input type="password" id="user-password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="user-type">Tipo de Usuário</label>
+                    <select id="user-type" name="type" required>
+                        <option value="">Selecione o tipo</option>
+                        <option value="admin">Administrador</option>
+                        <option value="leitor">Leitor</option>
+                    </select>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary modal-cancel">Cancelar</button>
+                    <button type="submit" class="btn-primary">Salvar</button>
+                </div>
+            </form>
         </div>
-        <form id="user-form" class="modal-form">
-            <div class="form-group">
-                <label for="user-name">Nome de Usuário</label>
-                <input type="text" id="user-name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="user-password">Senha</label>
-                <input type="password" id="user-password" name="password" required>
-            </div>
-            <div class="form-group">
-                <label for="user-type">Tipo de Usuário</label>
-                <select id="user-type" name="type" required>
-                    <option value="">Selecione o tipo</option>
-                    <option value="admin">Administrador</option>
-                    <option value="leitor">Leitor</option>
-                </select>
-            </div>
-            <div class="modal-actions">
-                <button type="button" class="btn-secondary modal-cancel">Cancelar</button>
-                <button type="submit" class="btn-primary">Salvar</button>
-            </div>
-        </form>
     </div>
-</div>
 
-<!-- Firebase Scripts -->
-<script type="module" src="app.js"></script>
-
+    <!-- Firebase Scripts -->
+    <script type="module" src="app.js"></script>
 </body>
 </html>
