@@ -62,7 +62,7 @@ async function initializeDefaultData() {
         }
 
         // Check if sections exist
-        const sectionsRef = ref(database, 'secões'); // ✅ Corrigido: secoes → secões
+        const sectionsRef = ref(database, 'secoes'); // ✅ Aqui: 'secoes' (sem acento)
         const sectionsSnapshot = await get(sectionsRef);
         if (!sectionsSnapshot.exists()) {
             // Create default sections
@@ -271,7 +271,7 @@ function loadAdminData() {
 // Load sections
 async function loadSections() {
     try {
-        const sectionsRef = ref(database, 'secões'); // ✅ Corrigido: secoes → secões
+        const sectionsRef = ref(database, 'secoes'); // ✅ 'secoes'
         const snapshot = await get(sectionsRef);
         const sectionsContainer = document.getElementById('sections-list');
         sectionsContainer.innerHTML = '';
@@ -400,7 +400,7 @@ function createUserCard(user) {
 
 // Load mural data
 function loadMuralData() {
-    const sectionsRef = ref(database, 'secões'); // ✅ Corrigido: secoes → secões
+    const sectionsRef = ref(database, 'secoes'); // ✅ 'secoes'
     // Listen for real-time updates
     onValue(sectionsRef, (snapshot) => {
         const muralContainer = document.getElementById('mural-content');
@@ -705,12 +705,12 @@ async function handleSectionSave(e) {
         let ordem;
         if (currentEditingSection) {
             sectionId = currentEditingSection;
-            const sectionRef = ref(database, `secões/${sectionId}`); // ✅ Corrigido
+            const sectionRef = ref(database, `secoes/${sectionId}`); // ✅ 'secoes'
             const snapshot = await get(sectionRef);
             ordem = snapshot.exists() ? snapshot.val().ordem : 1;
         } else {
             sectionId = `secao_${Date.now()}`;
-            const sectionsRef = ref(database, 'secões'); // ✅ Corrigido
+            const sectionsRef = ref(database, 'secoes'); // ✅ 'secoes'
             const snapshot = await get(sectionsRef);
             if (snapshot.exists()) {
                 const sections = Object.values(snapshot.val());
@@ -726,7 +726,7 @@ async function handleSectionSave(e) {
             ordem: ordem,
             conteudo: content
         };
-        const sectionRef = ref(database, `secões/${sectionId}`); // ✅ Corrigido
+        const sectionRef = ref(database, `secoes/${sectionId}`); // ✅ 'secoes'
         await set(sectionRef, sectionData);
         closeModals();
         loadSections();
@@ -827,7 +827,7 @@ window.removeListItem = function(button) {
 
 window.editSection = async function(sectionId) {
     try {
-        const sectionRef = ref(database, `secões/${sectionId}`); // ✅ Corrigido
+        const sectionRef = ref(database, `secoes/${sectionId}`); // ✅ 'secoes'
         const snapshot = await get(sectionRef);
         if (snapshot.exists()) {
             currentEditingSection = sectionId;
@@ -841,7 +841,7 @@ window.editSection = async function(sectionId) {
 window.deleteSection = async function(sectionId) {
     if (confirm('Tem certeza que deseja excluir esta seção?')) {
         try {
-            const sectionRef = ref(database, `secões/${sectionId}`); // ✅ Corrigido
+            const sectionRef = ref(database, `secoes/${sectionId}`); // ✅ 'secoes'
             await remove(sectionRef);
             loadSections();
         } catch (error) {
