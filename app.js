@@ -1,16 +1,16 @@
-// Firebase Configuration import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js'; import { getDatabase, ref, set, get, push, remove, onValue, off } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js';
+/Firebase Configuration import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js'; import { getDatabase, ref, set, get, push, remove, onValue, off } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js';
 
-// Firebase configuration - CONFIGURE SUAS CREDENCIAIS AQUI const firebaseConfig = { apiKey: "AIzaSyCVYvTFM3yoMta2T5AX_3FewmhtkvE9SOA", authDomain: "muralhsys.firebaseapp.com", databaseURL: "https://muralhsys-default-rtdb.firebaseio.com", projectId: "muralhsys", storageBucket: "muralhsys.appspot.com", messagingSenderId: "652168528324", appId: "1:652168528324:web:741aa4779c1f7a149c6491", measurementId: "G-FMKBG2M0PE" };
+ Firebase configuration - CONFIGURE SUAS CREDENCIAIS AQUI const firebaseConfig = { apiKey: "AIzaSyCVYvTFM3yoMta2T5AX_3FewmhtkvE9SOA", authDomain: "muralhsys.firebaseapp.com", databaseURL: "https://muralhsys-default-rtdb.firebaseio.com", projectId: "muralhsys", storageBucket: "muralhsys.appspot.com", messagingSenderId: "652168528324", appId: "1:652168528324:web:741aa4779c1f7a149c6491", measurementId: "G-FMKBG2M0PE" };
 
-// Initialize Firebase const app = initializeApp(firebaseConfig); const database = getDatabase(app);
+ Initialize Firebase const app = initializeApp(firebaseConfig); const database = getDatabase(app);
 
-// Global variables let currentUser = null; let currentEditingSection = null; let currentEditingUser = null; let sectionsData = {}; let usersData = {};
+ Global variables let currentUser = null; let currentEditingSection = null; let currentEditingUser = null; let sectionsData = {}; let usersData = {};
 
-// DOM Elements const loadingScreen = document.getElementById('loading-screen'); const loginScreen = document.getElementById('login-screen'); const mainApp = document.getElementById('main-app'); const adminPanel = document.getElementById('admin-panel'); const readerPanel = document.getElementById('reader-panel');
+DOM Elements const loadingScreen = document.getElementById('loading-screen'); const loginScreen = document.getElementById('login-screen'); const mainApp = document.getElementById('main-app'); const adminPanel = document.getElementById('admin-panel'); const readerPanel = document.getElementById('reader-panel');
 
-// Initialize app document.addEventListener('DOMContentLoaded', function() { startApp(); setupEventListeners(); });
+ Initialize app document.addEventListener('DOMContentLoaded', function() { startApp(); setupEventListeners(); });
 
-// Application initializer async function startApp() { try { await checkAndInitializeDatabase(); loadingScreen.style.display = 'none'; loginScreen.style.display = 'block'; } catch (error) { console.error('Erro ao inicializar aplicação:', error); alert('Erro ao conectar com o banco de dados. Verifique sua configuração do Firebase.'); } }
+ Application initializer async function startApp() { try { await checkAndInitializeDatabase(); loadingScreen.style.display = 'none'; loginScreen.style.display = 'block'; } catch (error) { console.error('Erro ao inicializar aplicação:', error); alert('Erro ao conectar com o banco de dados. Verifique sua configuração do Firebase.'); } }
 
 async function checkAndInitializeDatabase() { try { const usersRef = ref(database, 'usuarios'); const usersSnapshot = await get(usersRef);
 
