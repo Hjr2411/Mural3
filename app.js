@@ -1,218 +1,52 @@
-// Firebase Configuration
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
-import {
-  getDatabase, ref, set, get, push, remove, onValue, off
-} from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js';
+// Firebase Configuration import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js'; import { getDatabase, ref, set, get, push, remove, update, onValue, off } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js';
 
-// Firebase config
-const firebaseConfig = {
-  apiKey: "AIzaSyCVYvTFM3yoMta2T5AX_3FewmhtkvE9SOA",
-  authDomain: "muralhsys.firebaseapp.com",
-  databaseURL: "https://muralhsys-default-rtdb.firebaseio.com",
-  projectId: "muralhsys",
-  storageBucket: "muralhsys.appspot.com",
-  messagingSenderId: "652168528324",
-  appId: "1:652168528324:web:741aa4779c1f7a149c6491",
-  measurementId: "G-FMKBG2M0PE"
-};
+// Firebase config const firebaseConfig = { apiKey: "AIzaSyCVYvTFM3yoMta2T5AX_3FewmhtkvE9SOA", authDomain: "muralhsys.firebaseapp.com", databaseURL: "https://muralhsys-default-rtdb.firebaseio.com", projectId: "muralhsys", storageBucket: "muralhsys.appspot.com", messagingSenderId: "652168528324", appId: "1:652168528324:web:741aa4779c1f7a149c6491", measurementId: "G-FMKBG2M0PE" };
 
-// Inicializa Firebase
-const app = initializeApp(firebaseConfig);
-const database = getDatabase(app);
+const app = initializeApp(firebaseConfig); const database = getDatabase(app);
 
-// Variáveis globais
-let currentUser = null;
-let currentEditingSection = null;
-let currentEditingUser = null;
-let sectionsData = {};
-let usersData = {};
+let currentUser = null; let editingSectionKey = null; let editingUserKey = null;
 
-// Elementos DOM
-const loadingScreen = document.getElementById('loading-screen');
-const loginScreen = document.getElementById('login-screen');
-const mainApp = document.getElementById('main-app');
-const adminPanel = document.getElementById('admin-panel');
-const readerPanel = document.getElementById('reader-panel');
+const loadingScreen = document.getElementById('loading-screen'); const loginScreen = document.getElementById('login-screen'); const mainApp = document.getElementById('main-app'); const adminPanel = document.getElementById('admin-panel'); const readerPanel = document.getElementById('reader-panel');
 
-// Inicialização
-document.addEventListener('DOMContentLoaded', function () {
-  startApp();
-  setupEventListeners();
-});
+const sectionList = document.getElementById('sections-list'); const userList = document.getElementById('users-list'); const logList = document.getElementById('access-logs-list'); const suggestionList = document.getElementById('suggestions-list'); const muralContent = document.getElementById('mural-content');
 
-// Função principal
-async function startApp() {
-  try {
-    await checkAndInitializeDatabase();
-    loadingScreen.style.display = 'none';
-    loginScreen.style.display = 'block';
-  } catch (error) {
-    console.error('Erro ao inicializar aplicação:', error);
-    alert('Erro ao conectar com o banco de dados.');
-  }
-}
+// Inicialização document.addEventListener('DOMContentLoaded', () => { startApp(); setupEventListeners(); });
 
-// Verifica se o DB está vazio
-async function checkAndInitializeDatabase() {
-  const usersRef = ref(database, 'usuarios');
-  const usersSnapshot = await get(usersRef);
+async function startApp() { try { await checkAndInitializeDatabase(); loadingScreen.style.display = 'none'; loginScreen.style.display = 'block'; } catch (error) { console.error('Erro ao inicializar aplicação:', error); alert('Erro ao conectar com o banco de dados.'); } }
 
-  if (!usersSnapshot.exists()) {
-    console.log('Banco de dados vazio. Configure o primeiro administrador.');
-  }
-}
+function setupEventListeners() { document.getElementById('login-form').addEventListener('submit', handleLogin); document.getElementById('logout-btn').addEventListener('click', handleLogout); document.querySelectorAll('.nav-btn').forEach(btn => { btn.addEventListener('click', function () { switchAdminSection(this.dataset.section); }); }); document.getElementById('add-section-btn').addEventListener('click', () => openModal('section')); document.getElementById('add-user-btn').addEventListener('click', () => openModal('user')); document.querySelectorAll('.modal-close, .modal-cancel').forEach(el => el.addEventListener('click', closeModals)); document.getElementById('section-form').addEventListener('submit', handleSectionForm); document.getElementById('user-form').addEventListener('submit', handleUserForm); }
 
-// Eventos
-function setupEventListeners() {
-  document.getElementById('login-form').addEventListener('submit', handleLogin);
-  document.getElementById('logout-btn').addEventListener('click', handleLogout);
+async function handleLogin(e) { e.preventDefault(); const formData = new FormData(e.target); const username = formData.get('username'); const password = formData.get('password');
 
-  document.querySelectorAll('.nav-btn').forEach(btn => {
-    btn.addEventListener('click', function () {
-      switchAdminSection(this.dataset.section);
-    });
-  });
-}
+try { const usersRef = ref(database, 'usuarios'); const snapshot = await get(usersRef); if (snapshot.exists()) { const users = snapshot.val(); const user = Object.entries(users).find(([key, u]) => u.nome === username && u.senha === password); if (user) { currentUser = { ...user[1], key: user[0] }; loginScreen.style.display = 'none'; mainApp.style.display = 'block'; document.getElementById('user-name').textContent = currentUser.nome; if (currentUser.tipo === 'admin') { adminPanel.style.display = 'block'; readerPanel.style.display = 'none'; loadAdminData(); } else { adminPanel.style.display = 'none'; readerPanel.style.display = 'block'; loadMuralContent(); } e.target.reset(); document.getElementById('login-error').style.display = 'none'; } else { showLoginError('Usuário ou senha incorretos'); } } else { if (username && password) { await createFirstAdmin(username, password); showLoginError('Primeiro administrador criado. Faça login novamente.'); } else { showLoginError('Configure o primeiro usuário administrador'); } } } catch (error) { console.error('Erro no login:', error); showLoginError('Erro ao fazer login.'); } }
 
-// Login
-async function handleLogin(e) {
-  e.preventDefault();
-  const formData = new FormData(e.target);
-  const username = formData.get('username');
-  const password = formData.get('password');
+function showLoginError(msg) { const div = document.getElementById('login-error'); div.textContent = msg; div.style.display = 'block'; }
 
-  try {
-    const usersRef = ref(database, 'usuarios');
-    const snapshot = await get(usersRef);
+function handleLogout() { currentUser = null; mainApp.style.display = 'none'; loginScreen.style.display = 'block'; off(ref(database, 'secoes')); }
 
-    if (snapshot.exists()) {
-      const users = snapshot.val();
-      const user = Object.values(users).find(u => u.nome === username && u.senha === password);
+async function checkAndInitializeDatabase() { const usersRef = ref(database, 'usuarios'); const snapshot = await get(usersRef); if (!snapshot.exists()) { console.log('Banco vazio. Configure o primeiro admin.'); } }
 
-      if (user) {
-        currentUser = user;
-        await logUserAccess(user);
+async function createFirstAdmin(username, password) { const newRef = push(ref(database, 'usuarios')); await set(newRef, { nome: username, senha: password, tipo: 'admin', criadoEm: new Date().toISOString() }); }
 
-        loginScreen.style.display = 'none';
-        mainApp.style.display = 'block';
-        document.getElementById('user-name').textContent = user.nome;
+function switchAdminSection(section) { document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active')); document.querySelector([data-section="${section}"]).classList.add('active'); document.querySelectorAll('.admin-section').forEach(sec => sec.classList.remove('active')); document.getElementById(${section}-management).classList.add('active'); }
 
-        if (user.tipo === 'admin') {
-          adminPanel.style.display = 'block';
-          readerPanel.style.display = 'none';
-        } else {
-          adminPanel.style.display = 'none';
-          readerPanel.style.display = 'block';
-        }
+async function loadAdminData() { loadSections(); loadUsers(); loadLogs(); loadSuggestions(); }
 
-        e.target.reset();
-        document.getElementById('login-error').style.display = 'none';
-      } else {
-        showLoginError('Usuário ou senha incorretos');
-      }
-    } else {
-      if (username && password) {
-        await createFirstAdmin(username, password);
-        showLoginError('Primeiro administrador criado. Faça login novamente.');
-      } else {
-        showLoginError('Configure o primeiro usuário administrador');
-      }
-    }
-  } catch (error) {
-    console.error('Erro no login:', error);
-    showLoginError('Erro ao fazer login. Tente novamente.');
-  }
-}
+function loadSections() { const secRef = ref(database, 'secoes'); onValue(secRef, snapshot => { sectionList.innerHTML = ''; if (snapshot.exists()) { const data = snapshot.val(); Object.entries(data).forEach(([key, val]) => { const div = document.createElement('div'); div.textContent = ${val.titulo} (${val.tipo}); sectionList.appendChild(div); }); } }); }
 
-// Erro de login
-function showLoginError(message) {
-  const errorDiv = document.getElementById('login-error');
-  errorDiv.textContent = message;
-  errorDiv.style.display = 'block';
-}
+function loadUsers() { const userRef = ref(database, 'usuarios'); onValue(userRef, snapshot => { userList.innerHTML = ''; if (snapshot.exists()) { const data = snapshot.val(); Object.entries(data).forEach(([key, val]) => { const div = document.createElement('div'); div.textContent = ${val.nome} - ${val.tipo}; userList.appendChild(div); }); } }); }
 
-// Logout
-function handleLogout() {
-  currentUser = null;
-  currentEditingSection = null;
-  currentEditingUser = null;
-  mainApp.style.display = 'none';
-  loginScreen.style.display = 'block';
-  off(ref(database, 'secoes'));
-}
+function loadLogs() { const logRef = ref(database, 'acessos'); onValue(logRef, snapshot => { logList.innerHTML = ''; if (snapshot.exists()) { const data = snapshot.val(); Object.values(data).forEach(log => { const div = document.createElement('div'); div.textContent = ${log.usuario} - ${log.timestamp}; logList.appendChild(div); }); } }); }
 
-// Cria primeiro admin
-async function createFirstAdmin(username, password) {
-  const usersRef = ref(database, 'usuarios');
-  const newUserRef = push(usersRef);
-  await set(newUserRef, {
-    nome: username,
-    senha: password,
-    tipo: 'admin',
-    criadoEm: new Date().toISOString()
-  });
-  console.log('Primeiro administrador criado:', username);
-}
+function loadSuggestions() { const sugRef = ref(database, 'sugestoes'); onValue(sugRef, snapshot => { suggestionList.innerHTML = ''; if (snapshot.exists()) { const data = snapshot.val(); Object.values(data).forEach(s => { const div = document.createElement('div'); div.textContent = ${s.texto}; suggestionList.appendChild(div); }); } }); }
 
-// Log de acesso
-async function logUserAccess(user) {
-  try {
-    const accessRef = ref(database, 'acessos');
-    const newAccessRef = push(accessRef);
-    const accessData = {
-      usuario: user.nome,
-      tipo: user.tipo,
-      timestamp: new Date().toISOString(),
-      ip: await getUserIP(),
-      userAgent: navigator.userAgent,
-      device: getDeviceType(),
-      location: await getUserLocation()
-    };
-    await set(newAccessRef, accessData);
-  } catch (error) {
-    console.error('Erro ao registrar acesso:', error);
-  }
-}
+function loadMuralContent() { const muralRef = ref(database, 'secoes'); onValue(muralRef, snapshot => { muralContent.innerHTML = ''; if (snapshot.exists()) { const secoes = snapshot.val(); Object.values(secoes).forEach(sec => { const div = document.createElement('div'); div.textContent = ${sec.titulo}: ${sec.conteudo || ''}; muralContent.appendChild(div); }); } }); }
 
-// Captura IP
-async function getUserIP() {
-  try {
-    const response = await fetch('https://api.ipify.org?format=json');
-    const data = await response.json();
-    return data.ip;
-  } catch {
-    return 'Unknown';
-  }
-}
+function openModal(type) { if (type === 'section') { document.getElementById('section-form').reset(); document.getElementById('section-modal').style.display = 'block'; editingSectionKey = null; } else if (type === 'user') { document.getElementById('user-form').reset(); document.getElementById('user-modal').style.display = 'block'; editingUserKey = null; } }
 
-// Tipo de dispositivo
-function getDeviceType() {
-  const ua = navigator.userAgent;
-  if (/tablet|ipad|playbook|silk/i.test(ua)) return 'tablet';
-  if (/mobile|iphone|android/i.test(ua)) return 'mobile';
-  return 'desktop';
-}
+function closeModals() { document.querySelectorAll('.modal').forEach(m => m.style.display = 'none'); }
 
-// Localização do usuário
-async function getUserLocation() {
-  try {
-    const response = await fetch('https://ipapi.co/json/');
-    const data = await response.json();
-    return `${data.city}, ${data.country_name}`;
-  } catch {
-    return 'Unknown';
-  }
-}
+async function handleSectionForm(e) { e.preventDefault(); const title = document.getElementById('section-title').value; const type = document.getElementById('section-type').value; const refSec = editingSectionKey ? ref(database, secoes/${editingSectionKey}) : push(ref(database, 'secoes')); await set(refSec, { titulo: title, tipo: type }); closeModals(); }
 
-// Alterna seções admin
-function switchAdminSection(section) {
-  document.querySelectorAll('.nav-btn').forEach(btn =>
-    btn.classList.remove('active')
-  );
-  document.querySelector(`[data-section="${section}"]`).classList.add('active');
+async function handleUserForm(e) { e.preventDefault(); const name = document.getElementById('user-name').value; const password = document.getElementById('user-password').value; const type = document.getElementById('user-type').value; const refUser = editingUserKey ? ref(database, usuarios/${editingUserKey}) : push(ref(database, 'usuarios')); await set(refUser, { nome: name, senha: password, tipo: type }); closeModals(); }
 
-  document.querySelectorAll('.admin-section').forEach(sec =>
-    sec.classList.remove('active')
-  );
-  document.getElementById(`${section}-management`).classList.add('active');
-}
