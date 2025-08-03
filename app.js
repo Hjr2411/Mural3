@@ -12,7 +12,8 @@ const loadingScreen = document.getElementById('loading-screen'); const loginScre
 
 const sectionList = document.getElementById('sections-list'); const userList = document.getElementById('users-list'); const logList = document.getElementById('access-logs-list'); const suggestionList = document.getElementById('suggestions-list'); const muralContent = document.getElementById('mural-content');
 
-// Inicialização document.addEventListener('DOMContentLoaded', () => { startApp(); setupEventListeners(); });
+// Inicialização 
+document.addEventListener('DOMContentLoaded', () => { startApp(); setupEventListeners(); });
 
 async function startApp() { try { await checkAndInitializeDatabase(); loadingScreen.style.display = 'none'; loginScreen.style.display = 'block'; } catch (error) { console.error('Erro ao inicializar aplicação:', error); alert('Erro ao conectar com o banco de dados.'); } }
 
