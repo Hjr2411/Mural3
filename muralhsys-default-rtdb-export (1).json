@@ -1,0 +1,945 @@
+{
+  "acessos": {
+    "-OWSb3SrtSkpPqavhi6c": {
+      "device": {
+        "browser": "Chrome",
+        "icon": "fas fa-desktop",
+        "os": "Linux",
+        "screen": {
+          "height": 1029,
+          "width": 1280
+        },
+        "type": "desktop",
+        "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "viewport": {
+          "height": 941,
+          "width": 1279
+        }
+      },
+      "errorMessage": "Usuário não encontrado",
+      "location": {
+        "city": "Council Bluffs",
+        "country": "United States",
+        "ip": "34.29.183.73",
+        "isp": "GOOGLE-CLOUD-PLATFORM",
+        "region": "Iowa",
+        "timezone": "America/Chicago"
+      },
+      "sessionId": "mdql0589h2tu7b2xht",
+      "success": false,
+      "timestamp": "2025-07-30T23:12:59.769Z",
+      "usuario": "HelioGoes"
+    },
+    "-OWSbHkesuBHcv_d0MPl": {
+      "device": {
+        "browser": "Chrome",
+        "icon": "fas fa-desktop",
+        "os": "Linux",
+        "screen": {
+          "height": 1029,
+          "width": 1280
+        },
+        "type": "desktop",
+        "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "viewport": {
+          "height": 941,
+          "width": 1279
+        }
+      },
+      "errorMessage": "Usuário não encontrado",
+      "location": {
+        "city": "Council Bluffs",
+        "country": "United States",
+        "ip": "34.29.183.73",
+        "isp": "GOOGLE-CLOUD-PLATFORM",
+        "region": "Iowa",
+        "timezone": "America/Chicago"
+      },
+      "sessionId": "mdql1eelgf7llmjdygu",
+      "success": false,
+      "timestamp": "2025-07-30T23:13:58.317Z",
+      "usuario": "HelioGoes"
+    },
+    "-OWSfSgDFBE6oCRuui6U": {
+      "device": {
+        "browser": "Chrome",
+        "icon": "fas fa-mobile-alt",
+        "os": "Linux",
+        "screen": {
+          "height": 735,
+          "width": 339
+        },
+        "type": "mobile",
+        "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Mobile Safari/537.36",
+        "viewport": {
+          "height": 602,
+          "width": 338
+        }
+      },
+      "location": {
+        "city": "Unknown",
+        "country": "Unknown",
+        "ip": "Unknown",
+        "isp": "Unknown",
+        "region": "Unknown",
+        "timezone": "Unknown"
+      },
+      "sessionId": "mdqlou7h3amdwrbd1co",
+      "success": true,
+      "timestamp": "2025-07-30T23:32:11.885Z",
+      "usuario": "Helio"
+    },
+    "-OWSfaiyk10ACq8zF03N": {
+      "device": {
+        "browser": "Chrome",
+        "icon": "fas fa-mobile-alt",
+        "os": "Linux",
+        "screen": {
+          "height": 735,
+          "width": 339
+        },
+        "type": "mobile",
+        "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Mobile Safari/537.36",
+        "viewport": {
+          "height": 602,
+          "width": 338
+        }
+      },
+      "location": {
+        "city": "Unknown",
+        "country": "Unknown",
+        "ip": "Unknown",
+        "isp": "Unknown",
+        "region": "Unknown",
+        "timezone": "Unknown"
+      },
+      "sessionId": "mdqlpms8zhvevkp7k1",
+      "success": true,
+      "timestamp": "2025-07-30T23:32:48.920Z",
+      "usuario": "User"
+    },
+    "-OWSfdpwXT-jNUgUyn_U": {
+      "device": {
+        "browser": "Chrome",
+        "icon": "fas fa-mobile-alt",
+        "os": "Linux",
+        "screen": {
+          "height": 735,
+          "width": 339
+        },
+        "type": "mobile",
+        "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Mobile Safari/537.36",
+        "viewport": {
+          "height": 602,
+          "width": 338
+        }
+      },
+      "location": {
+        "city": "Unknown",
+        "country": "Unknown",
+        "ip": "Unknown",
+        "isp": "Unknown",
+        "region": "Unknown",
+        "timezone": "Unknown"
+      },
+      "sessionId": "mdqlpwlye2neg27vd5r",
+      "success": true,
+      "timestamp": "2025-07-30T23:33:01.654Z",
+      "usuario": "Helio"
+    },
+    "-OWSfzkEbfqmV4rsgVKK": {
+      "device": {
+        "browser": "Firefox",
+        "icon": "fas fa-mobile-alt",
+        "os": "Android",
+        "screen": {
+          "height": 741,
+          "width": 342
+        },
+        "type": "mobile",
+        "userAgent": "Mozilla/5.0 (Android 15; Mobile; rv:141.0) Gecko/141.0 Firefox/141.0",
+        "viewport": {
+          "height": 608,
+          "width": 342
+        }
+      },
+      "location": {
+        "city": "Unknown",
+        "country": "Unknown",
+        "ip": "Unknown",
+        "isp": "Unknown",
+        "region": "Unknown",
+        "timezone": "Unknown"
+      },
+      "sessionId": "mdqlrtuwe7h1xt8no4b",
+      "success": true,
+      "timestamp": "2025-07-30T23:34:31.400Z",
+      "usuario": "Helio"
+    },
+    "-OWSgemyZ0TUk_Oy4qww": {
+      "device": {
+        "browser": "Firefox",
+        "icon": "fas fa-mobile-alt",
+        "os": "Android",
+        "screen": {
+          "height": 741,
+          "width": 342
+        },
+        "type": "mobile",
+        "userAgent": "Mozilla/5.0 (Android 15; Mobile; rv:141.0) Gecko/141.0 Firefox/141.0",
+        "viewport": {
+          "height": 664,
+          "width": 342
+        }
+      },
+      "errorMessage": "Senha incorreta",
+      "location": {
+        "city": "Unknown",
+        "country": "Unknown",
+        "ip": "Unknown",
+        "isp": "Unknown",
+        "region": "Unknown",
+        "timezone": "Unknown"
+      },
+      "sessionId": "mdqlvlwchu6z3afzkz9",
+      "success": false,
+      "timestamp": "2025-07-30T23:37:27.708Z",
+      "usuario": "user"
+    },
+    "-OWSghJIrWplMjWfU-oL": {
+      "device": {
+        "browser": "Firefox",
+        "icon": "fas fa-mobile-alt",
+        "os": "Android",
+        "screen": {
+          "height": 741,
+          "width": 342
+        },
+        "type": "mobile",
+        "userAgent": "Mozilla/5.0 (Android 15; Mobile; rv:141.0) Gecko/141.0 Firefox/141.0",
+        "viewport": {
+          "height": 664,
+          "width": 342
+        }
+      },
+      "location": {
+        "city": "Unknown",
+        "country": "Unknown",
+        "ip": "Unknown",
+        "isp": "Unknown",
+        "region": "Unknown",
+        "timezone": "Unknown"
+      },
+      "sessionId": "mdqlvtv6mkk0drdski",
+      "success": true,
+      "timestamp": "2025-07-30T23:37:38.034Z",
+      "usuario": "user"
+    },
+    "-OWSpZ_2y11pqIldgpoi": {
+      "device": {
+        "browser": "Firefox",
+        "icon": "fas fa-mobile-alt",
+        "os": "Android",
+        "screen": {
+          "height": 741,
+          "width": 342
+        },
+        "type": "mobile",
+        "userAgent": "Mozilla/5.0 (Android 15; Mobile; rv:141.0) Gecko/141.0 Firefox/141.0",
+        "viewport": {
+          "height": 608,
+          "width": 342
+        }
+      },
+      "errorMessage": "Senha incorreta",
+      "location": {
+        "city": "Unknown",
+        "country": "Unknown",
+        "ip": "Unknown",
+        "isp": "Unknown",
+        "region": "Unknown",
+        "timezone": "Unknown"
+      },
+      "sessionId": "mdqn9molp8e6v5yw9g",
+      "success": false,
+      "timestamp": "2025-07-31T00:16:21.525Z",
+      "usuario": "user"
+    },
+    "-OWSpaMpCz52Y21_HxzM": {
+      "device": {
+        "browser": "Firefox",
+        "icon": "fas fa-mobile-alt",
+        "os": "Android",
+        "screen": {
+          "height": 741,
+          "width": 342
+        },
+        "type": "mobile",
+        "userAgent": "Mozilla/5.0 (Android 15; Mobile; rv:141.0) Gecko/141.0 Firefox/141.0",
+        "viewport": {
+          "height": 608,
+          "width": 342
+        }
+      },
+      "location": {
+        "city": "Unknown",
+        "country": "Unknown",
+        "ip": "Unknown",
+        "isp": "Unknown",
+        "region": "Unknown",
+        "timezone": "Unknown"
+      },
+      "sessionId": "mdqn9scoguubvyuqtp",
+      "success": true,
+      "timestamp": "2025-07-31T00:16:28.872Z",
+      "usuario": "user"
+    },
+    "-OWSphcMwizUHcJ-egZ7": {
+      "device": {
+        "browser": "Firefox",
+        "icon": "fas fa-mobile-alt",
+        "os": "Android",
+        "screen": {
+          "height": 741,
+          "width": 342
+        },
+        "type": "mobile",
+        "userAgent": "Mozilla/5.0 (Android 15; Mobile; rv:141.0) Gecko/141.0 Firefox/141.0",
+        "viewport": {
+          "height": 664,
+          "width": 342
+        }
+      },
+      "location": {
+        "city": "Unknown",
+        "country": "Unknown",
+        "ip": "Unknown",
+        "isp": "Unknown",
+        "region": "Unknown",
+        "timezone": "Unknown"
+      },
+      "sessionId": "mdqnafajrgfbxn0ezea",
+      "success": true,
+      "timestamp": "2025-07-31T00:16:58.603Z",
+      "usuario": "Helio"
+    },
+    "-OWSuwXg2eHWuuoRBp9g": {
+      "device": {
+        "browser": "Chrome",
+        "icon": "fas fa-mobile-alt",
+        "os": "Linux",
+        "screen": {
+          "height": 735,
+          "width": 339
+        },
+        "type": "mobile",
+        "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Mobile Safari/537.36",
+        "viewport": {
+          "height": 602,
+          "width": 338
+        }
+      },
+      "errorMessage": "Senha incorreta",
+      "location": {
+        "city": "Unknown",
+        "country": "Unknown",
+        "ip": "Unknown",
+        "isp": "Unknown",
+        "region": "Unknown",
+        "timezone": "Unknown"
+      },
+      "sessionId": "mdqo3trxdhhkja82raw",
+      "success": false,
+      "timestamp": "2025-07-31T00:39:50.397Z",
+      "usuario": "User"
+    },
+    "-OWSuxDmsQxHz-geXwAK": {
+      "device": {
+        "browser": "Chrome",
+        "icon": "fas fa-mobile-alt",
+        "os": "Linux",
+        "screen": {
+          "height": 735,
+          "width": 339
+        },
+        "type": "mobile",
+        "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Mobile Safari/537.36",
+        "viewport": {
+          "height": 602,
+          "width": 338
+        }
+      },
+      "errorMessage": "Senha incorreta",
+      "location": {
+        "city": "Unknown",
+        "country": "Unknown",
+        "ip": "Unknown",
+        "isp": "Unknown",
+        "region": "Unknown",
+        "timezone": "Unknown"
+      },
+      "sessionId": "mdqo3vydqh1sq9kwa1",
+      "success": false,
+      "timestamp": "2025-07-31T00:39:53.221Z",
+      "usuario": "User"
+    },
+    "-OWSuyknp83TXvET0faN": {
+      "device": {
+        "browser": "Chrome",
+        "icon": "fas fa-mobile-alt",
+        "os": "Linux",
+        "screen": {
+          "height": 735,
+          "width": 339
+        },
+        "type": "mobile",
+        "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Mobile Safari/537.36",
+        "viewport": {
+          "height": 602,
+          "width": 338
+        }
+      },
+      "location": {
+        "city": "Unknown",
+        "country": "Unknown",
+        "ip": "Unknown",
+        "isp": "Unknown",
+        "region": "Unknown",
+        "timezone": "Unknown"
+      },
+      "sessionId": "mdqo40smzodlx1eqdkj",
+      "success": true,
+      "timestamp": "2025-07-31T00:39:59.493Z",
+      "usuario": "User"
+    },
+    "-OWSvEMB61jmtPPlbUqZ": {
+      "device": {
+        "browser": "Chrome",
+        "icon": "fas fa-mobile-alt",
+        "os": "Linux",
+        "screen": {
+          "height": 735,
+          "width": 339
+        },
+        "type": "mobile",
+        "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Mobile Safari/537.36",
+        "viewport": {
+          "height": 602,
+          "width": 338
+        }
+      },
+      "location": {
+        "city": "Unknown",
+        "country": "Unknown",
+        "ip": "Unknown",
+        "isp": "Unknown",
+        "region": "Unknown",
+        "timezone": "Unknown"
+      },
+      "sessionId": "mdqo5h9asrp7csksc0l",
+      "success": true,
+      "timestamp": "2025-07-31T00:41:07.486Z",
+      "usuario": "Helio"
+    },
+    "-OWUnC6l-ksIllqhZseK": {
+      "device": {
+        "browser": "Firefox",
+        "icon": "fas fa-mobile-alt",
+        "os": "Android",
+        "screen": {
+          "height": 741,
+          "width": 342
+        },
+        "type": "mobile",
+        "userAgent": "Mozilla/5.0 (Android 15; Mobile; rv:141.0) Gecko/141.0 Firefox/141.0",
+        "viewport": {
+          "height": 608,
+          "width": 342
+        }
+      },
+      "location": {
+        "city": "Unknown",
+        "country": "Unknown",
+        "ip": "Unknown",
+        "isp": "Unknown",
+        "region": "Unknown",
+        "timezone": "Unknown"
+      },
+      "sessionId": "mdr6viofkqbkutiy4tk",
+      "success": true,
+      "timestamp": "2025-07-31T09:25:15.471Z",
+      "usuario": "Helio"
+    },
+    "-OWWg67HDDN8wQVR5d9l": {
+      "device": {
+        "browser": "Chrome",
+        "icon": "fas fa-desktop",
+        "os": "Windows",
+        "screen": {
+          "height": 1030,
+          "width": 1440
+        },
+        "type": "desktop",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0",
+        "viewport": {
+          "height": 900,
+          "width": 1440
+        }
+      },
+      "errorMessage": "Usuário não encontrado",
+      "location": {
+        "city": "Amsterdam",
+        "country": "The Netherlands",
+        "ip": "178.128.141.201",
+        "isp": "DIGITALOCEAN-ASN",
+        "region": "North Holland",
+        "timezone": "Europe/Amsterdam"
+      },
+      "sessionId": "mdrpqumpudeeipfi1hb",
+      "success": false,
+      "timestamp": "2025-07-31T18:13:30.385Z",
+      "usuario": "David"
+    },
+    "-OWWg894lXEvcI3UW7I5": {
+      "device": {
+        "browser": "Chrome",
+        "icon": "fas fa-desktop",
+        "os": "Windows",
+        "screen": {
+          "height": 1030,
+          "width": 1440
+        },
+        "type": "desktop",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0",
+        "viewport": {
+          "height": 900,
+          "width": 1440
+        }
+      },
+      "errorMessage": "Usuário não encontrado",
+      "location": {
+        "city": "Amsterdam",
+        "country": "The Netherlands",
+        "ip": "178.128.141.201",
+        "isp": "DIGITALOCEAN-ASN",
+        "region": "North Holland",
+        "timezone": "Europe/Amsterdam"
+      },
+      "sessionId": "mdrpr11h0j7no45pha1",
+      "success": false,
+      "timestamp": "2025-07-31T18:13:38.693Z",
+      "usuario": "David"
+    },
+    "-OWWgAJef3DP2jtXty-i": {
+      "device": {
+        "browser": "Chrome",
+        "icon": "fas fa-desktop",
+        "os": "Windows",
+        "screen": {
+          "height": 1030,
+          "width": 1440
+        },
+        "type": "desktop",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0",
+        "viewport": {
+          "height": 900,
+          "width": 1440
+        }
+      },
+      "errorMessage": "Erro de sistema",
+      "location": {
+        "city": "Amsterdam",
+        "country": "The Netherlands",
+        "ip": "178.128.141.201",
+        "isp": "DIGITALOCEAN-ASN",
+        "region": "North Holland",
+        "timezone": "Europe/Amsterdam"
+      },
+      "sessionId": "mdrpr7vuxffuuka05z",
+      "success": false,
+      "timestamp": "2025-07-31T18:13:47.562Z",
+      "usuario": "eva82@tf-info.com"
+    },
+    "-OWWgCIRfysbDEllL17J": {
+      "device": {
+        "browser": "Chrome",
+        "icon": "fas fa-desktop",
+        "os": "Windows",
+        "screen": {
+          "height": 1030,
+          "width": 1440
+        },
+        "type": "desktop",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0",
+        "viewport": {
+          "height": 900,
+          "width": 1440
+        }
+      },
+      "errorMessage": "Erro de sistema",
+      "location": {
+        "city": "Amsterdam",
+        "country": "The Netherlands",
+        "ip": "178.128.141.201",
+        "isp": "DIGITALOCEAN-ASN",
+        "region": "North Holland",
+        "timezone": "Europe/Amsterdam"
+      },
+      "sessionId": "mdrpre57c2jtzdmw1k4",
+      "success": false,
+      "timestamp": "2025-07-31T18:13:55.675Z",
+      "usuario": "eva82@tf-info.com"
+    },
+    "-OWWgEaDc4mGiu-LEEZY": {
+      "device": {
+        "browser": "Chrome",
+        "icon": "fas fa-desktop",
+        "os": "Windows",
+        "screen": {
+          "height": 1030,
+          "width": 1440
+        },
+        "type": "desktop",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0",
+        "viewport": {
+          "height": 900,
+          "width": 1440
+        }
+      },
+      "errorMessage": "Erro de sistema",
+      "location": {
+        "city": "Amsterdam",
+        "country": "The Netherlands",
+        "ip": "178.128.141.201",
+        "isp": "DIGITALOCEAN-ASN",
+        "region": "North Holland",
+        "timezone": "Europe/Amsterdam"
+      },
+      "sessionId": "mdrprle6kmm92zxwq9",
+      "success": false,
+      "timestamp": "2025-07-31T18:14:05.070Z",
+      "usuario": "rick.bruin"
+    },
+    "-OWWgG_IkCJNj8z5z6W0": {
+      "device": {
+        "browser": "Chrome",
+        "icon": "fas fa-desktop",
+        "os": "Windows",
+        "screen": {
+          "height": 1030,
+          "width": 1440
+        },
+        "type": "desktop",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0",
+        "viewport": {
+          "height": 900,
+          "width": 1440
+        }
+      },
+      "errorMessage": "Erro de sistema",
+      "location": {
+        "city": "Amsterdam",
+        "country": "The Netherlands",
+        "ip": "178.128.141.201",
+        "isp": "DIGITALOCEAN-ASN",
+        "region": "North Holland",
+        "timezone": "Europe/Amsterdam"
+      },
+      "sessionId": "mdrprro37juheezutc4",
+      "success": false,
+      "timestamp": "2025-07-31T18:14:13.202Z",
+      "usuario": "rick.bruin"
+    },
+    "-OWWgIhI5MO9VYVJzKtm": {
+      "device": {
+        "browser": "Chrome",
+        "icon": "fas fa-desktop",
+        "os": "Windows",
+        "screen": {
+          "height": 1030,
+          "width": 1440
+        },
+        "type": "desktop",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0",
+        "viewport": {
+          "height": 900,
+          "width": 1440
+        }
+      },
+      "errorMessage": "Usuário não encontrado",
+      "location": {
+        "city": "Amsterdam",
+        "country": "The Netherlands",
+        "ip": "178.128.141.201",
+        "isp": "DIGITALOCEAN-ASN",
+        "region": "North Holland",
+        "timezone": "Europe/Amsterdam"
+      },
+      "sessionId": "mdrprydv8c1oj4kjs0o",
+      "success": false,
+      "timestamp": "2025-07-31T18:14:21.907Z",
+      "usuario": "Sílvia"
+    },
+    "-OWWgKeLoXgDKOPmw-D5": {
+      "device": {
+        "browser": "Chrome",
+        "icon": "fas fa-desktop",
+        "os": "Windows",
+        "screen": {
+          "height": 1030,
+          "width": 1440
+        },
+        "type": "desktop",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0",
+        "viewport": {
+          "height": 900,
+          "width": 1440
+        }
+      },
+      "errorMessage": "Usuário não encontrado",
+      "location": {
+        "city": "Amsterdam",
+        "country": "The Netherlands",
+        "ip": "178.128.141.201",
+        "isp": "DIGITALOCEAN-ASN",
+        "region": "North Holland",
+        "timezone": "Europe/Amsterdam"
+      },
+      "sessionId": "mdrps4k6g39y0ocg8n8",
+      "success": false,
+      "timestamp": "2025-07-31T18:14:29.910Z",
+      "usuario": "Sílvia"
+    },
+    "-OWkKLAZQ823FNjCsh5o": {
+      "device": "desktop",
+      "ip": "177.79.96.199",
+      "location": "Unknown",
+      "timestamp": "2025-08-03T14:28:21.074Z",
+      "tipo": "admin",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
+      "usuario": "Helio"
+    },
+    "-OWkKOOtmRPv3P4pX6Mt": {
+      "device": "mobile",
+      "ip": "177.79.96.199",
+      "location": "Unknown",
+      "timestamp": "2025-08-03T14:28:34.280Z",
+      "tipo": "admin",
+      "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Mobile Safari/537.36",
+      "usuario": "Helio"
+    },
+    "-OWkKViDS9YPtw9_CaGg": {
+      "device": "desktop",
+      "ip": "177.79.96.199",
+      "location": "Unknown",
+      "timestamp": "2025-08-03T14:29:04.248Z",
+      "tipo": "admin",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
+      "usuario": "Helio"
+    },
+    "-OWkKe59dumZZT3p7_LJ": {
+      "device": "desktop",
+      "ip": "177.79.96.199",
+      "location": "Unknown",
+      "timestamp": "2025-08-03T14:29:42.645Z",
+      "tipo": "leitor",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
+      "usuario": "User"
+    },
+    "-OWkKoXTB2s23TTGkhOk": {
+      "device": "mobile",
+      "ip": "177.79.96.199",
+      "location": "Unknown",
+      "timestamp": "2025-08-03T14:30:25.419Z",
+      "tipo": "leitor",
+      "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Mobile Safari/537.36",
+      "usuario": "User"
+    },
+    "-OWkKz5d5QTNh45T7Agw": {
+      "device": "mobile",
+      "ip": "177.79.96.199",
+      "location": "Unknown",
+      "timestamp": "2025-08-03T14:31:08.694Z",
+      "tipo": "admin",
+      "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Mobile Safari/537.36",
+      "usuario": "Helio"
+    },
+    "-OWkLOvqNbsx0nYXKHVG": {
+      "device": "mobile",
+      "ip": "177.79.96.199",
+      "location": "Unknown",
+      "timestamp": "2025-08-03T14:32:58.602Z",
+      "tipo": "admin",
+      "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Mobile Safari/537.36",
+      "usuario": "Helio"
+    },
+    "-OWkMBuKsVIfSnnHVAKI": {
+      "device": "mobile",
+      "ip": "177.79.96.199",
+      "location": "Unknown",
+      "timestamp": "2025-08-03T14:36:27.411Z",
+      "tipo": "admin",
+      "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Mobile Safari/537.36",
+      "usuario": "Helio"
+    },
+    "-OWkNmE8svgAOrFoRhNr": {
+      "device": "mobile",
+      "ip": "177.79.96.199",
+      "location": "Unknown",
+      "timestamp": "2025-08-03T14:43:22.420Z",
+      "tipo": "admin",
+      "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Mobile Safari/537.36",
+      "usuario": "Helio"
+    },
+    "-OWkNmNvGVYrvKv674s0": {
+      "device": "mobile",
+      "ip": "177.79.96.199",
+      "location": "Unknown",
+      "timestamp": "2025-08-03T14:43:23.046Z",
+      "tipo": "admin",
+      "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Mobile Safari/537.36",
+      "usuario": "Helio"
+    },
+    "-OWkNoAxPD8CQCEceWGd": {
+      "device": "mobile",
+      "ip": "177.79.96.199",
+      "location": "Unknown",
+      "timestamp": "2025-08-03T14:43:30.407Z",
+      "tipo": "admin",
+      "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Mobile Safari/537.36",
+      "usuario": "Helio"
+    },
+    "-OWkNoK_ZoQaXHBHhFNH": {
+      "device": "mobile",
+      "ip": "177.79.96.199",
+      "location": "Unknown",
+      "timestamp": "2025-08-03T14:43:31.023Z",
+      "tipo": "admin",
+      "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Mobile Safari/537.36",
+      "usuario": "Helio"
+    },
+    "-OWkNpJKGTB75DFjkSX9": {
+      "device": "mobile",
+      "ip": "177.79.96.199",
+      "location": "Unknown",
+      "timestamp": "2025-08-03T14:43:35.045Z",
+      "tipo": "admin",
+      "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Mobile Safari/537.36",
+      "usuario": "Helio"
+    },
+    "-OWkNpTH2DsGRSWL3NU4": {
+      "device": "mobile",
+      "ip": "177.79.96.199",
+      "location": "Unknown",
+      "timestamp": "2025-08-03T14:43:35.682Z",
+      "tipo": "admin",
+      "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Mobile Safari/537.36",
+      "usuario": "Helio"
+    },
+    "-OWkNsuM40TADn654aJR": {
+      "device": "mobile",
+      "ip": "177.79.96.199",
+      "location": "Unknown",
+      "timestamp": "2025-08-03T14:43:49.762Z",
+      "tipo": "leitor",
+      "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Mobile Safari/537.36",
+      "usuario": "User"
+    },
+    "-OWkNt4RnnbFiQXF_XsO": {
+      "device": "mobile",
+      "ip": "177.79.96.199",
+      "location": "Unknown",
+      "timestamp": "2025-08-03T14:43:50.471Z",
+      "tipo": "leitor",
+      "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Mobile Safari/537.36",
+      "usuario": "User"
+    },
+    "-OWkNuYPExkz7UgydjbP": {
+      "device": "mobile",
+      "ip": "177.79.96.199",
+      "location": "Unknown",
+      "timestamp": "2025-08-03T14:43:56.486Z",
+      "tipo": "leitor",
+      "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Mobile Safari/537.36",
+      "usuario": "User"
+    },
+    "-OWkNuhK0Xu5F4mQFen4": {
+      "device": "mobile",
+      "ip": "177.79.96.199",
+      "location": "Unknown",
+      "timestamp": "2025-08-03T14:43:57.121Z",
+      "tipo": "leitor",
+      "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Mobile Safari/537.36",
+      "usuario": "User"
+    },
+    "-OWkNwA4tJnftsn3LzqK": {
+      "device": "mobile",
+      "ip": "177.79.96.199",
+      "location": "Unknown",
+      "timestamp": "2025-08-03T14:44:03.123Z",
+      "tipo": "admin",
+      "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Mobile Safari/537.36",
+      "usuario": "Helio"
+    }
+  },
+  "equipes": {
+    "CPCN1": {
+      "nome": "CPCN1"
+    },
+    "CPCN2": {
+      "nome": "CPCN2"
+    },
+    "PosPagoN1": {
+      "nome": "PosPagoN1"
+    },
+    "PosPagoN2": {
+      "nome": "PosPagoN2"
+    }
+  },
+  "secoes": {
+    "-OWkYqeE1EkAVHyZ8Jsp": {
+      "tipo": "sugestoes",
+      "titulo": "Deixe uma sugestão aqui"
+    },
+    "secao_1753838322132": {
+      "conteudo": [
+        {
+          "horario": "09:00 as 18:00",
+          "nome": "Lucas Silva",
+          "projeto": "Pós Pago"
+        },
+        {
+          "horario": "09:00 as 18:00",
+          "nome": "Joao",
+          "projeto": "CPC"
+        }
+      ],
+      "id": "secao_1753838322132",
+      "ordem": 1,
+      "tipo": "plantao",
+      "titulo": "Platão de Sábado 02/Agosto"
+    }
+  },
+  "usuarios": {
+    "Helio": {
+      "nome": "Helio",
+      "senha": "97616896",
+      "tipo": "admin"
+    },
+    "Serodio": {
+      "nome": "Serodio",
+      "senha": "Serodio",
+      "tipo": "leitor"
+    },
+    "User": {
+      "nome": "User",
+      "senha": "123456",
+      "tipo": "leitor"
+    },
+    "user": {
+      "nome": "user",
+      "senha": "123456",
+      "tipo": "leitor"
+    }
+  }
+}
