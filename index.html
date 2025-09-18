@@ -5,20 +5,17 @@
   <title>MuralSys • Portal de Colaboradores</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- CSS externo (será enviado depois) -->
   <link rel="stylesheet" href="style.css" />
-
-  <!-- Ícones (opcional) -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
 
-  <!-- PWA (preparado p/ app no futuro – arquivos virão depois) -->
+  <!-- (opcional) PWA preparado -->
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#ffffff">
 </head>
 <body>
-  <!-- ===== LOGIN ===== -->
-  <div id="login-screen" class="screen screen--center" aria-hidden="false">
+  <!-- ===== LOGIN (visível) ===== -->
+  <div id="login-screen" class="screen screen--center">
     <div class="card card--auth" role="dialog" aria-labelledby="login-title">
       <div class="card__header">
         <h1 id="login-title" class="app-title">
@@ -47,9 +44,8 @@
     </div>
   </div>
 
-  <!-- ===== APLICATIVO ===== -->
+  <!-- ===== APP (oculto inicialmente) ===== -->
   <div id="app" class="app" hidden>
-    <!-- Header fixo -->
     <header class="app-header">
       <div class="app-header__inner">
         <div class="brand">
@@ -58,8 +54,7 @@
         </div>
 
         <nav class="app-actions">
-          <!-- visível somente para admin (JS controla) -->
-          <button id="open-composer" class="btn btn--ghost" data-visible-for="admin" title="Novo post">
+          <button id="open-composer" class="btn btn--ghost" data-visible-for="admin" title="Novo post" hidden>
             <i class="fa-solid fa-square-plus"></i> Novo post
           </button>
 
@@ -75,10 +70,8 @@
       </div>
     </header>
 
-    <!-- Feed central (estilo Instagram) -->
     <main class="feed" role="main" aria-live="polite">
       <div class="feed__container">
-        <!-- Os cards serão injetados aqui via JS -->
         <div id="feed-list" class="feed-list" aria-busy="true"></div>
         <div id="feed-empty" class="empty" hidden>
           <i class="fa-regular fa-face-smile"></i>
@@ -88,7 +81,7 @@
     </main>
   </div>
 
-  <!-- ===== MODAL: COMPOSER (ADMIN) ===== -->
+  <!-- ===== MODAL COMPOSER (oculto) ===== -->
   <div id="composer-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="composer-title" hidden>
     <div class="modal__dialog">
       <header class="modal__header">
@@ -126,7 +119,7 @@
           </div>
         </fieldset>
 
-        <!-- Conteúdo TEXTO -->
+        <!-- TEXTO -->
         <section id="composer-texto" class="composer-section">
           <label class="field">
             <span class="field__label">Conteúdo</span>
@@ -134,7 +127,7 @@
           </label>
         </section>
 
-        <!-- Conteúdo IMAGEM (somente URL no MVP) -->
+        <!-- IMAGEM (URL no MVP) -->
         <section id="composer-imagem" class="composer-section" hidden>
           <label class="field">
             <span class="field__label">URL da imagem</span>
@@ -143,7 +136,7 @@
           <p class="muted">No MVP não haverá upload; apenas URL de imagem.</p>
         </section>
 
-        <!-- Conteúdo ENQUETE -->
+        <!-- ENQUETE -->
         <section id="composer-enquete" class="composer-section" hidden>
           <div class="grid grid--2">
             <label class="field">
@@ -182,10 +175,9 @@
     </div>
   </div>
 
-  <!-- ===== TEMPLATE DE POST (para o JS clonar/renderizar) ===== -->
+  <!-- TEMPLATE DE POST -->
   <template id="post-card-template">
     <article class="post-card" data-post-id="">
-      <!-- Cabeçalho do post -->
       <header class="post-card__header">
         <div class="post-author">
           <div class="avatar" aria-hidden="true"><i class="fa-solid fa-user"></i></div>
@@ -195,27 +187,21 @@
           </div>
         </div>
 
-        <!-- Menu admin (aparece só para admin) -->
-        <div class="post-menu" data-visible-for="admin">
+        <div class="post-menu" data-visible-for="admin" hidden>
           <button class="icon-btn post-edit" title="Editar"><i class="fa-solid fa-pen"></i></button>
           <button class="icon-btn post-delete" title="Excluir"><i class="fa-solid fa-trash"></i></button>
         </div>
       </header>
 
-      <!-- Título -->
       <h3 class="post-title"></h3>
 
-      <!-- Conteúdo dinâmico -->
       <div class="post-content">
-        <!-- Tipo TEXTO -->
         <div class="post-text" hidden></div>
 
-        <!-- Tipo IMAGEM -->
         <figure class="post-image" hidden>
           <img src="" alt="Imagem do post" loading="lazy">
         </figure>
 
-        <!-- Tipo ENQUETE -->
         <form class="post-poll" hidden>
           <fieldset class="poll-options"></fieldset>
           <button type="submit" class="btn btn--primary btn--sm poll-vote">
@@ -225,7 +211,6 @@
         </form>
       </div>
 
-      <!-- Ações -->
       <div class="post-actions">
         <button class="btn btn--ghost btn-like" aria-pressed="false">
           <i class="fa-regular fa-thumbs-up"></i> <span>Like</span>
@@ -233,10 +218,8 @@
         </button>
       </div>
 
-      <!-- Comentários -->
       <section class="post-comments">
         <ul class="comment-list" role="list"></ul>
-
         <form class="comment-form" autocomplete="off">
           <label class="sr-only" for="comment-input">Adicionar comentário</label>
           <input class="comment-input" name="comment" type="text" placeholder="Escreva um comentário/solicitação…" required>
@@ -248,7 +231,6 @@
     </article>
   </template>
 
-  <!-- ===== DIALOGS ===== -->
   <dialog id="confirm-dialog" class="dialog">
     <form method="dialog" class="dialog__body">
       <p id="confirm-text">Tem certeza?</p>
@@ -259,10 +241,9 @@
     </form>
   </dialog>
 
-  <!-- ===== TOAST ===== -->
   <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 
-  <!-- JS (será enviado depois). Deixe como module para Firebase SDK moderno -->
+  <!-- IMPORTANTE: module -->
   <script type="module" src="app.js"></script>
 </body>
 </html>
