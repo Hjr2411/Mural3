@@ -6,6 +6,7 @@
  * - Posts: texto | imagem (URL) | enquete
  * - Ordem do feed definida pelo admin (campo "ordem")
  * - Interações: like (confirmação), comentários, voto (1 por usuário)
+ * - ADMIN: botão "Novo usuário" (dinâmico) + atalho Ctrl+U
  ****************************************************/
 
 /* ============================
@@ -103,16 +104,16 @@ function byOrdemAsc(a, b){
 }
 
 /* ============================
-   Sessão (storage simples)
+   Sessão (sem auto-login)
 ============================ */
-function restoreSession(){
+// Guardar só o nome para pré-preencher, sem autenticar
+function restoreSessionName(){
   const saved = sessionStorage.getItem("currentUser");
-  if(saved){
-    try { currentUser = JSON.parse(saved); } catch { currentUser = null; }
-  }
+  if(!saved) return null;
+  try { return JSON.parse(saved)?.nome || null; } catch { return null; }
 }
-function saveSession(){
-  sessionStorage.setItem("currentUser", JSON.stringify(currentUser));
+function saveSessionName(){
+  sessionStorage.setItem("currentUser", JSON.stringify({ nome: currentUser?.nome || "" }));
 }
 function clearSession(){
   sessionStorage.removeItem("currentUser");
@@ -136,6 +137,9 @@ function showApp(){
   document.querySelectorAll("[data-visible-for='admin']").forEach(el=>{
     if(currentUser?.tipo === "admin") show(el); else hide(el);
   });
+
+  // Injeta botão "Novo usuário" (admin) se ainda não existir
+  ensureCreateUserButton();
 }
 
 /* ============================
@@ -162,7 +166,7 @@ loginForm?.addEventListener("submit", async (e)=>{
       return;
     }
     currentUser = data;
-    saveSession();
+    saveSessionName();      // só nome, sem auto-login
     showApp();
     bindFeed();
     toast("Login efetuado");
@@ -503,6 +507,57 @@ function waitDialog(dlg){
 }
 
 /* ============================
+   Administrar usuários (dinâmico)
+   - Botão "Novo usuário" injetado no header quando admin loga
+   - Atalho: Ctrl+U para abrir prompts
+============================ */
+function ensureCreateUserButton(){
+  const container = document.querySelector(".app-actions");
+  if(!container || currentUser?.tipo !== "admin") return;
+
+  // evita duplicar
+  if(document.getElementById("create-user-btn")) return;
+
+  const btn = document.createElement("button");
+  btn.id = "create-user-btn";
+  btn.className = "btn btn--ghost";
+  btn.title = "Cadastrar novo usuário";
+  btn.innerHTML = `<i class="fa-solid fa-user-plus"></i> Novo usuário`;
+  btn.addEventListener("click", handleCreateUserPrompt);
+  container.insertBefore(btn, container.firstChild);
+
+  // atalho Ctrl+U
+  window.addEventListener("keydown", (e)=>{
+    if(e.ctrlKey && (e.key.toLowerCase() === "u")){
+      e.preventDefault();
+      if(currentUser?.tipo === "admin") handleCreateUserPrompt();
+    }
+  }, { once:false });
+}
+
+async function handleCreateUserPrompt(){
+  const nome = prompt("Usuário (ex.: joao.silva):")?.trim();
+  if(!nome) return;
+  const senha = prompt("Senha (mínimo 4 caracteres):") || "";
+  if(senha.length < 4){ alert("Senha muito curta."); return; }
+  let tipo = prompt('Tipo (admin/leitor):', 'leitor')?.trim().toLowerCase();
+  if(tipo !== "admin" && tipo !== "leitor") tipo = "leitor";
+
+  try{
+    const path = ref(db, `usuarios/${nome}`);
+    const snap = await get(path);
+    if(snap.exists()){
+      if(!confirm("Usuário já existe. Deseja atualizar a senha/tipo?")) return;
+    }
+    await set(path, { nome, senha, tipo });
+    toast("Usuário salvo.");
+  }catch(err){
+    console.error(err);
+    toast("Erro ao salvar usuário.");
+  }
+}
+
+/* ============================
    Sanitização simples
 ============================ */
 function escapeHtml(s){
@@ -519,60 +574,18 @@ function sanitize(s){
 }
 
 /* ============================
-   Dados iniciais (opcional)
-   - Cria usuário admin/leitor e um post se base vazia.
-============================ */
-async function seedIfEmpty(){
-  try{
-    const uSnap = await get(ref(db,"usuarios"));
-    if(!uSnap.exists()){
-      await set(ref(db,"usuarios"), {
-        "HelioGoes": { nome:"HelioGoes", senha:"976168", tipo:"admin" },
-        "colaborador1": { nome:"colaborador1", senha:"senha123", tipo:"leitor" }
-      });
-    }
-    const pSnap = await get(ref(db,"posts"));
-    if(!pSnap.exists()){
-      const p1 = push(ref(db,"posts"));
-      await set(p1, {
-        id: p1.key,
-        tipo: "texto",
-        titulo: "Bem-vindo ao MuralSys",
-        conteudo: "Este é um comunicado de exemplo. Use o botão Novo post para publicar.",
-        ordem: 1,
-        autor: "HelioGoes",
-        timestamp: isoNow()
-      });
-      const p2 = push(ref(db,"posts"));
-      await set(p2, {
-        id: p2.key,
-        tipo: "enquete",
-        titulo: "Qual data prefere para o treinamento?",
-        ordem: 2,
-        autor: "HelioGoes",
-        timestamp: isoNow(),
-        enquete: { opcoes: ["10/10","15/10","20/10"], votos: {} }
-      });
-    }
-  }catch(e){ console.warn("Seed erro (ignorar em prod):", e); }
-}
-
-/* ============================
-   Inicialização
+   Inicialização (SEM auto-login)
 ============================ */
 (async function init(){
-  await seedIfEmpty(); // opcional (ajuda no primeiro uso)
+  // NÃO chamamos seedIfEmpty aqui porque você já importou base.json
+  const lastName = restoreSessionName();
+  showLogin();
 
-  restoreSession();
-  if(currentUser){
-    showApp();
-    bindFeed();
-  }else{
-    showLogin();
-  }
+  // pré-preenche usuário se existir
+  if (lastName && loginUserEl) loginUserEl.value = lastName;
 
   // fechar modal ao clicar fora
   composerModal?.addEventListener("click", (e)=>{
     if(e.target === composerModal) hide(composerModal);
   });
-})();// app.js completo
+})();
